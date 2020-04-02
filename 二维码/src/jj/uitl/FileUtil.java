@@ -1,26 +1,22 @@
+package jj.uitl;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
+/**
+ * 此类是文本存储类
+ * 创建文件夹存储文本，标题。text
+ * @author lenovo
+ *
+ */
+public class FileUtil {
+	private String text;
 
-public class DemoOne {
-	
-	public void Jsoup(){
-		
-		Document doc=null;
-		try {
-			doc = org.jsoup.Jsoup.connect("https://xs.sogou.com/chapter/7619881134_249687923766147/").get();
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		}
-		Element ele = doc.getElementById("contentWp");
-		String text = ele.text();
-		text = text.replace(" ", "\n");
-		Elements eles = doc.getElementsByTag("h1");
-		String title = eles.get(0).text();
+	public FileUtil(String title,String text) {
+		super();
+		this.text = text;
+		// TODO Auto-generated constructor stub
 		File f=null;
 		f = new File("F://小说//凡人修仙传仙界篇/"+title+".txt");
 		FileWriter fw=null;
@@ -56,12 +52,7 @@ public class DemoOne {
 		
 //		System.out.println(title);
 		
+		}
 		
-		
-	}
-	
 
 }
-
-	
-
